@@ -1,0 +1,45 @@
+Graphql là một ngôn ngữ truy vấn khá mạnh
+Linh hoạt và hiệu quả hơn so với RESTful
+
+1. RESTful
+- Endpoint để lấy thông tin 1 cuốn sách:
+	domain.com/books/:id
+- Endpoint để lấy thông tin 1 tác giả:
+	domain.com/authors/:id
+ 2. Graphql
+ - Truy vấn để lấy thông tin 1 cuốn sách và author (và quyển sách khác)
+  -> chỉ cần 1 request đã có thể truy vấn những thông tin trên
+
+{
+	book(id: 123){
+		title
+		genre
+		review
+		author{
+			name
+			bio
+			books{
+				name
+			}
+		}
+	}
+}
+
+hoặc nếu cần ít hơn
+{
+	book(id: 123){
+		title
+		author{
+			name
+			books{
+				name
+			}
+		}
+	}
+}
+
+
+
+
+
+
